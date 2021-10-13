@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+
+html {
+  background-color:white;
+  display: flex;
+  justify-content: center;
+}
+body {
+  max-width: 1300px;
+  height: 100vh;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+header {
+  display: grid;
+  grid-template-columns: auto 6fr auto;
+  justify-content: center;
+  align-items: center;
+  height: 10%;
+  min-height: 5em;
+  max-height: 7em;
+  padding-left: 3.5em;
+  padding-right: 3.5em;
+  user-select: none;
+  margin-bottom: 3em;
+}
+
+header h1 {
+  color: rgb(199, 210, 243);
+  font-weight: 900;
+  font-size: 2em;
+}
+h4 {
+    color:green;
+}
+
+.add-book-button {
+  min-height: 3em;
+  width: auto;
+  padding: 0.5em;
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+  border:1px solid green;
+  border-width: 0;
+  border-radius: 0.2em;
+  font-weight: 600;
+  font-family: "Lato", sans-serif;
+  font-size: 0.9em;
+  background-color:white;
+  color: green;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.1s;
+  grid-column-start: 3;
+}
+
+.add-book-button:hover {
+  background-color:green;
+  color:white;
+}
+
+main {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+}
+
+.grid-item {
+  display: grid;
+  grid-template-columns: 13em 1fr;
+  grid-template-rows: auto;
+  background-color: gold;
+  max-width: 18em;
+  height: auto;
+  padding: 1em;
+  padding-bottom: 1.5em;
+  line-height: 1.3em;
+  margin: 2em;
+  color: black;
+  border-radius: 0.2em;
+  word-wrap: break-word;
+  row-gap: 0.5em;
+  animation-duration: 0.5s;
+  animation-name: slidein;
+  align-items: top;
+  justify-items: top;
+  transition: background-color 0.1s;
+}
+
+@keyframes slidein {
+  from {
+    max-height: 0px;
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    max-height: 1000px;
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.remove-button {
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 1.2em;
+  outline: none;
+  color: black;
+  transition: color 0.1s;
+}
+
+.remove-button:hover {
+  color:red;
+}
+
+.grid-item h2 {
+  color:black;
+  font-size: 1.5em;
+  margin: 0;
+  margin-bottom: 0.2em;
+  line-height: 1.2em;
+}
+
+.grid-item p {
+  grid-column-start: 1;
+  margin-block-start: 0;
+  margin-block-end: 0em;
+}
+
+.library-empty-message {
+  height: 100%;
+  color:green;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.library-empty-message h1 {
+  margin-bottom: 4em;
+}
+
+@media only screen and (max-width: 550px) {
+  header {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    justify-items: center;
+    min-height: 10em;
+    margin-bottom: 1em;
+    height: auto;
+  }
+  .add-book-button {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    width: 6em;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .grid-item {
+    margin-bottom: 0;
+  }
+}
+
+.read-text {
+  color: green;
+  user-select: none;
+}
+
+#not-read {
+  color: red;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  z-index: 9;
+  left: 50%;
+  margin-left: -150px;
+  top: 50%;
+  margin-top: -200px;
+  animation-name: slidein;
+  animation-duration: 0.2s;
+}
+
+.form-container {
+  max-width: 300px;
+  padding: 1em;
+  background-color: gold;
+  border-radius: 0.5em;
+  user-select: none;
+}
+
+#enter-btn {
+  margin-top: 1.5em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.form-container input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  box-sizing: border-box;
+}
+
+.form-container input[type="text"]:focus,
+input[type="number"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container .btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.form-container .cancel {
+  background-color: red;
+}
+
+.form-container .btn:hover,
+.open-button:hover {
+  opacity: 1;
+}
